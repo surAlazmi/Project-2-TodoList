@@ -9,9 +9,28 @@ app.get('/',(req,res)=>{
     res.json('Get/ is Working')
 })
 
+
+
+
+//نرجع البينات الداتا بmongoose يبغالة تعديل
 app.get('/tasks',(req,res)=>{
-    res.json('Get/is workinf todo')
+    Todo.find({},(err,data)=>{
+        if(err){
+            console.log('ERROR : ',err)
+        }
+        else
+        {
+            res.json(data)
+        }
+    })
+
+    
 })
+
+
+
+
+
 
 
 
